@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1743376315 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\main.cpp
+	<iostream>
+	<string>
+	"Captura.h"
+	"Operaciones.h"
+	"CapturaSegura.tpp"
+
+1743385671 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\operaciones.cpp
+	<iostream>
+	<cmath>
+	"Captura.h"
+	"Operaciones.h"
+
+1743382298 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\captura.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+	"Captura.h"
+	"CapturaSegura.tpp"
+	"Operaciones.h"
+
+1743377173 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\captura.h
+	"Operaciones.h"
+
+1743289611 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\capturasegura.tpp
+	<iostream>
+	<limits>
+
+1743385745 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\operaciones.h
+	<iostream>
+
