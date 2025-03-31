@@ -1,6 +1,8 @@
 #ifndef OPERACIONES_H_INCLUDED
 #define OPERACIONES_H_INCLUDED
+
 #include <iostream>
+
 using namespace std;
 
 void SumarPolinomio(int* &A, int* &B,int nA,int nB);

@@ -30,3 +30,42 @@
 1743385745 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\operaciones.h
 	<iostream>
 
+1743388670 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+	"Captura.h"
+	"CapturaSegura.tpp"
+	"Operaciones.h"
+
+1743377173 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.h
+	"Operaciones.h"
+
+1743386975 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.h
+	<iostream>
+
+1743289611 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\capturasegura.tpp
+	<iostream>
+	<limits>
+
+1743387182 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\main.cpp
+	<iostream>
+	<string>
+	"Captura.h"
+	"Operaciones.h"
+	"CapturaSegura.tpp"
+	"Gestion.h"
+
+1743387475 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.cpp
+	<iostream>
+	<cmath>
+	"Captura.h"
+	"Operaciones.h"
+
+1743387132 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\gestion.cpp
+	"Operaciones.h"
+	"Captura.h"
+	"CapturaSegura.tpp"
+
+1743387154 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\gestion.h
+

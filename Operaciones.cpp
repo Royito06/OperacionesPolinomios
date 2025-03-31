@@ -16,7 +16,7 @@ void SumarPolinomio(int* &A, int* &B,int nA,int nB)
         {
             Suma[i]=A[i]+B[i];
         }
-        cout<<"La suma de";
+        cout<<"Suma: ";
         ImprimirArreglo(A,nA);
         cout<<"+";
         ImprimirArreglo(B,nB);
@@ -31,7 +31,7 @@ void SumarPolinomio(int* &A, int* &B,int nA,int nB)
         {
             Suma[i]=A[i]+B[i];
         }
-        cout<<"La suma de";
+        cout<<"Suma: ";
         ImprimirArreglo(A,nA);
         cout<<"+";
         ImprimirArreglo(B,nB);
@@ -55,7 +55,7 @@ void RestarPolinomio(int* &A, int* &B,int nA,int nB)
         {
             Resta[i]=A[i]-B[i];
         }
-        cout<<"La resta de";
+        cout<<"Resta: ";
         ImprimirArreglo(A,nA);
         cout<<"-";
         ImprimirArreglo(B,nB);
@@ -70,7 +70,7 @@ void RestarPolinomio(int* &A, int* &B,int nA,int nB)
         {
             Resta[i]=A[i]-B[i];
         }
-        cout<<"La resta de";
+        cout<<"Resta: ";
         ImprimirArreglo(A,nA);
         cout<<"-";
         ImprimirArreglo(B,nB);

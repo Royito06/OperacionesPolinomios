@@ -82,22 +82,33 @@ void ImprimirArregloD (Polinomio* Arreglo, int n)
 
 void ImprimirArreglo (int* Arreglo, int n)
 {
-
-    for (int i=n-1; i>-1;i-- )
+    if(n==1)
     {
-
-
-        if(Arreglo[i]!=0)
+        cout<<Arreglo[0];
+    }else
+    {
+        if(n==2)
         {
-            if(i==n-1)
+        cout<<Arreglo[0]<<"x"<<(Arreglo[1]>0? "+":"")<<(Arreglo[1]>0? std::to_string(Arreglo[1]):"");
+        }else
+        {
+            for (int i=n-1; i>-1;i-- )
             {
-                cout<<Arreglo[i]<<"x^"<<i;
-            }else
-            {
-            cout<<(Arreglo[i]>0? "+":"")<<Arreglo[i]<<(i>0?"x":"")<<(i>1 ? "^"+ std::to_string(i):"");
+
+
+                if(Arreglo[i]!=0)
+                {
+                    if(i==n-1)
+                    {
+                        cout<<Arreglo[i]<<"x^"<<i;
+                    }else
+                    {
+                    cout<<(Arreglo[i]>0? "+":"")<<Arreglo[i]<<(i>0?"x":"")<<(i>1 ? "^"+ std::to_string(i):"");
+                    }
+                }
+
             }
         }
-
     }
 
 }
