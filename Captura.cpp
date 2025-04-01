@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <windows.h>
 #include "Captura.h"
 #include "CapturaSegura.tpp"
 #include "Operaciones.h"
@@ -17,7 +18,7 @@ int CapturaArreglo (int* &Arreglo)
     int n;
 
     do{
-    cout<<"Introduzca el grado del polinomio A["<<MINIMO<<"-"<<MAXIMO<<"]: ";
+    cout<<"Introduzca el grado del polinomio ["<<MINIMO<<"-"<<MAXIMO<<"]: ";
     cin>>n;
     }while(!CapturaSegura(n)||n<MINIMO||n>MAXIMO);
     n=n+1;//aqui se le suma 1 a n para que el tamaño del arreglo sea el correcto
@@ -38,19 +39,21 @@ int CapturaArregloD (Polinomio* &Arreglo)
     int n;
 
     do{
-    cout<<"Introduzca el grado del polinomio A["<<MINIMO<<"-"<<MAXIMO<<"]: ";
+    cout<<"Introduzca el grado del polinomio ["<<MINIMO<<"-"<<MAXIMO<<"]: ";
     cin>>n;
     }while(!CapturaSegura(n)||n<MINIMO||n>MAXIMO);
     n=n+1;//aqui se le suma 1 a n para que el tamaño del arreglo sea el correcto
+
+    //Por si acaso
     delete [] Arreglo;
 
     Arreglo= new Polinomio [n];
 
     for (int i=0; i<n;i++)
     {
-        cout<<"Introduzca x^"<<i<<": ";
+        cout<<"Introduzca x^"<<n-1-i<<": ";
         cin>>Arreglo[i].coeficiente;
-        Arreglo[i].exponente=i;
+        Arreglo[i].exponente=n-1-i;
     }
     ImprimirArregloD(Arreglo,n);
     cout<<endl;
@@ -60,15 +63,15 @@ int CapturaArregloD (Polinomio* &Arreglo)
 void ImprimirArregloD (Polinomio* Arreglo, int n)
 {
 
-    for (int i=n-1; i>-1;i-- )
+    for (int i=0; i<n;i++)
     {
 
 
         if(Arreglo[i].coeficiente!=0)
         {
-            if(i==n-1)
+            if(i==0)
             {
-                cout<<Arreglo[i].coeficiente<<"x^"<<i;
+                cout<<Arreglo[i].coeficiente<<"x^"<<Arreglo[i].exponente;
             }else
             {
             cout<<(Arreglo[i].coeficiente>0? "+":"")<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
@@ -111,4 +114,5 @@ void ImprimirArreglo (int* Arreglo, int n)
         }
     }
 
+        Sleep(3);
 }

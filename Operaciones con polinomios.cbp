@@ -35,6 +35,8 @@
 		<Unit filename="Captura.cpp" />
 		<Unit filename="Captura.h" />
 		<Unit filename="CapturaSegura.tpp" />
+		<Unit filename="Gestion.cpp" />
+		<Unit filename="Gestion.h" />
 		<Unit filename="Operaciones.cpp" />
 		<Unit filename="Operaciones.h" />
 		<Unit filename="main.cpp" />

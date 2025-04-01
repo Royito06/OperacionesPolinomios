@@ -15,6 +15,7 @@ struct Polinomio
     float coeficiente;
 
 };
+void DividirPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB);
 void DerivarPolinomio(Polinomio* &Arreglo, int n);
 void EvaluarPolinomio(int* &Arreglo,int n,float valor);
 #endif // OPERACIONES_H_INCLUDED

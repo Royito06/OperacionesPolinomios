@@ -1,19 +1,36 @@
 #include "Operaciones.h"
 #include "Captura.h"
 #include "CapturaSegura.tpp"
-
+#include "Gestion.h"
+#include <windows.h>
+/*
+H  R   T
+A  E   O
+B  F   D               ..  .
+R  A   O           ...    .
+A  C                     .
+   T               ...    .
+Q  O                       .
+U  R
+E  I
+   Z
+   A   //NO SERÁ *TAN*  DIFICIL, HAY QUE USAR FUNCIONES YA HECHAS POR MI
+   R
+   */
 void ControlOpciones(int opcion)
 {
+    int Repetir;
+
     switch (opcion)
     {
-
+        system("CLS");
         case 1:
             {
-                //Hay que refactorizar esta parte, para que la peticion de datos se haga por parte de una funcion
-            int* A = nullptr;
-            int n1=CapturaArreglo(A);
-            int* B = nullptr;
-            int n2=CapturaArreglo(B);
+            //Hay que refactorizar esta parte, para que la peticion de datos se haga por parte de una funcion
+            Polinomio* A = nullptr;
+            int n1=CapturaArregloD(A);
+            Polinomio* B = nullptr;
+            int n2=CapturaArregloD(B);
             SumarPolinomio(A,B,n1,n2);
 
             delete[] A;
@@ -22,10 +39,10 @@ void ControlOpciones(int opcion)
             }
         case 2:
             {
-            int* A = nullptr;
-            int n1=CapturaArreglo(A);
-            int* B = nullptr;
-            int n2=CapturaArreglo(B);
+            Polinomio* A = nullptr;
+            int n1=CapturaArregloD(A);
+            Polinomio* B = nullptr;
+            int n2=CapturaArregloD(B);
             RestarPolinomio(A,B,n1,n2);
 
             delete[] A;
@@ -34,10 +51,10 @@ void ControlOpciones(int opcion)
             }
         case 3:
             {
-            int* A = nullptr;
-            int n1=CapturaArreglo(A);
-            int* B = nullptr;
-            int n2=CapturaArreglo(B);
+            Polinomio* A = nullptr;
+            int n1=CapturaArregloD(A);
+            Polinomio* B = nullptr;
+            int n2=CapturaArregloD(B);
             MultiplicacionPolinomio(A,B,n1,n2);
 
             delete[] A;
@@ -46,6 +63,23 @@ void ControlOpciones(int opcion)
 
             }
         case 4:
+            {
+                cout<<"El exponente del segundo polinomio debe ser mayor o igual que el primero"<<endl;
+
+                /*do{
+                    Polinomio* A = nullptr;
+                    int n1=CapturaArregloD(A);
+                    Polinomio* B = nullptr;
+                    int n2=CapturaArregloD(B);
+                }while(A[n1-1].exponente<B[n2-1].exponente);
+
+
+
+
+                delete[] A;
+                delete[] B;*/
+                break;
+            }
         case 5:
             {
                 Polinomio* Arreglo= nullptr;
@@ -57,12 +91,35 @@ void ControlOpciones(int opcion)
         case 6:
         {
             float valor;
-            int* A = nullptr;
+            Polinomio* A = nullptr;
             int n=CapturaArreglo(A);
             cout<<"Introduzca el valor de x:";
             cin>>valor;
             EvaluarPolinomio(A,n,valor);
         }
     }
+
+
+}
+
+void ImprimirOps ()
+{   Sleep(5);
+
+    cout<<endl<<"0) Para Salir"<<endl
+    <<"1) Para sumar dos polinomios"<<endl
+    <<"2) Para restar dos polinoimios"<<endl
+    <<"3) Para multiplicar dos polinomios"<<endl
+    <<"4) Para dividir dos polinomios"<<endl
+    <<"5) Para derivar un polinomio"<<endl
+    <<"6) Para evaluar un polinomio"<<endl;
+}
+
+void Captura2()
+{
+
+}
+
+void Captura1()
+{
 
 }

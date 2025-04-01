@@ -5,38 +5,38 @@
 
 using namespace std;
 
-void SumarPolinomio(int* &A, int* &B,int nA,int nB)
+void SumarPolinomio(Polinomio* &A, Polinomio* &B,int nA,int nB)
 {
 
     if(nA>=nB)
     {
-        int* Suma=new int[nA];
+        Polinomio* Suma=new Polinomio[nA];
 
         for(int i=0;i<nB;i++)
         {
-            Suma[i]=A[i]+B[i];
+
         }
         cout<<"Suma: ";
-        ImprimirArreglo(A,nA);
+        ImprimirArregloD(A,nA);
         cout<<"+";
-        ImprimirArreglo(B,nB);
+        ImprimirArregloD(B,nB);
         cout<<"=";
-        ImprimirArreglo(Suma,nA);
+        ImprimirArregloD(Suma,nA);
         delete[] Suma;
     }else
     {
-        int* Suma=new int[nB];
+        Polinomio* Suma=new Polinomio[nB];
 
         for(int i=0;i<nA;i++)
         {
-            Suma[i]=A[i]+B[i];
+            Suma[i].coeficiente=A[i].coeficiente+B[i].coeficiente;
         }
         cout<<"Suma: ";
-        ImprimirArreglo(A,nA);
+        ImprimirArregloD(A,nA);
         cout<<"+";
-        ImprimirArreglo(B,nB);
+        ImprimirArregloD(B,nB);
         cout<<"=";
-        ImprimirArreglo(Suma,nB);
+        ImprimirArregloD(Suma,nB);
         delete[] Suma;
     }
 
@@ -44,38 +44,38 @@ void SumarPolinomio(int* &A, int* &B,int nA,int nB)
 
 }
 
-void RestarPolinomio(int* &A, int* &B,int nA,int nB)
+void RestarPolinomio(Polinomio* &A, Polinomio* &B,int nA,int nB)
 {
 
     if(nA>=nB)
     {
-        int* Resta=new int[nA];
+        Polinomio* Resta=new Polinomio[nA];
 
         for(int i=0;i<nB;i++)
         {
-            Resta[i]=A[i]-B[i];
+            Resta[i].coeficiente=A[i].coeficiente-B[i].coeficiente;
         }
         cout<<"Resta: ";
-        ImprimirArreglo(A,nA);
+        ImprimirArregloD(A,nA);
         cout<<"-";
-        ImprimirArreglo(B,nB);
+        ImprimirArregloD(B,nB);
         cout<<"=";
-        ImprimirArreglo(Resta,nA);
+        ImprimirArregloD(Resta,nA);
         delete[] Resta;
     }else
     {
-        int* Resta=new int[nB];
+        Polinomio* Resta=new Polinomio[nB];
 
         for(int i=0;i<nA;i++)
         {
-            Resta[i]=A[i]-B[i];
+            Resta[i].coeficiente=A[i].coeficiente-B[i].coeficiente;
         }
         cout<<"Resta: ";
-        ImprimirArreglo(A,nA);
+        ImprimirArregloD(A,nA);
         cout<<"-";
-        ImprimirArreglo(B,nB);
+        ImprimirArregloD(B,nB);
         cout<<"=";
-        ImprimirArreglo(Resta,nB);
+        ImprimirArregloD(Resta,nB);
         delete[] Resta;
     }
 
@@ -83,18 +83,18 @@ void RestarPolinomio(int* &A, int* &B,int nA,int nB)
 
 }
 
-void MultiplicacionPolinomio(int* &A,int* &B, int nA,int nB)
+void MultiplicacionPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB)
 {
     //Primero se van a multiplicar los 2 polinomios, ya despues reduciremos terminos semejantes
     int nInicial=nA*nB;
-    int* MultiplicacionInicial= new int [nInicial];
-    int* Exponente= new int [nInicial];
+    Polinomio* MultiplicacionInicial= new Polinomio [nInicial];
+    Polinomio* Exponente= new Polinomio [nInicial];
 
     //se llena de ceros los arreglos
     for(int j=0;j<nInicial;j++)
     {
-        MultiplicacionInicial[j]=0;
-        Exponente[j]=0;
+        MultiplicacionInicial[j].coeficiente=0;
+        MultiplicacionInicial[j].exponente=0;
     }
     int indice=0;
 
@@ -102,8 +102,8 @@ void MultiplicacionPolinomio(int* &A,int* &B, int nA,int nB)
     {
         for(int j=0;j<nB;j++)
         {
-            MultiplicacionInicial[indice]=A[i]*B[j];
-            Exponente[indice]=i+j;
+            MultiplicacionInicial[indice].coeficiente=A[i].coeficiente*B[j].coeficiente;
+            MultiplicacionInicial[indice].exponente=i+j;
             indice++;
         }
     }
@@ -114,15 +114,15 @@ void MultiplicacionPolinomio(int* &A,int* &B, int nA,int nB)
     {
 
 
-        if(MultiplicacionInicial[i]!=0)
+        if(MultiplicacionInicial[i].coeficiente!=0)
         {
             if(i==nInicial-1)
             {
-                cout<<MultiplicacionInicial[i]<<"x^"<<Exponente[i];
+                cout<<MultiplicacionInicial[i].coeficiente<<"x^"<<MultiplicacionInicial[i].exponente;
             }else
             {
-            cout<<(MultiplicacionInicial[i]>0? "+":"")<<MultiplicacionInicial[i]<<
-            (Exponente[i]>0?"x":"")<<(Exponente[i]>1 ? "^"+ std::to_string(Exponente[i]):"");
+            cout<<(MultiplicacionInicial[i].coeficiente>0? "+":"")<<MultiplicacionInicial[i].coeficiente<<
+            (MultiplicacionInicial[i].exponente>0?"x":"")<<(Exponente[i].coeficiente>1 ? "^"+ std::to_string(MultiplicacionInicial[i].exponente):"");
             }
         }
     }
@@ -150,71 +150,21 @@ void MultiplicacionPolinomio(int* &A,int* &B, int nA,int nB)
     delete[] Exponente;
 }
 //Este quedará pendiente
-void DividirPolinomio(int* &A,int* &B, int nA,int nB)
+void DividirPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB)
 {
-    //Primero se van a multiplicar los 2 polinomios, ya despues reduciremos terminos semejantes
-    int nInicial=nA*nB;
-    int* DivisionInicial= new int [nInicial];
-    int* Exponente= new int [nInicial];
+    int nInicial=nB;
 
-    //se llena de ceros los arreglos
-    for(int j=0;j<nInicial;j++)
-    {
-        DivisionInicial[j]=0;
-        Exponente[j]=0;
-    }
-    int indice=0;
-
-    for (int i=0;i<nA;i++)
-    {
-        for(int j=0;j<nB;j++)
-        {
-            DivisionInicial[indice]=A[i]*B[j];
-            Exponente[indice]=i+j;
-            indice++;
-        }
-    }
+    Polinomio* DivisionInicial= new Polinomio [nInicial];
 
 
-    //Aqui se imprime el arreglo antes de reducir terminos semejantes, para revisar que sea correcta la multiplicacion
-    for (int i=nInicial-1; i>-1;i-- )
-    {
+    DivisionInicial[0].coeficiente=B[0].coeficiente/A[0].coeficiente;
+    DivisionInicial[0].exponente=B[0].exponente/A[0].exponente;
 
-
-        if(DivisionInicial[i]!=0)
-        {
-            if(i==nInicial-1)
-            {
-                cout<<DivisionInicial[i]<<"x^"<<Exponente[i];
-            }else
-            {
-            cout<<(DivisionInicial[i]>0? "+":"")<<DivisionInicial[i]<<
-            (Exponente[i]>0?"x":"")<<(Exponente[i]>1 ? "^"+ std::to_string(Exponente[i]):"");
-            }
-        }
-    }
-
-
-    //Ahora se reducen terminos semejantes
-    int n=(nA+nB)-1;
-    int* DivisionFinal=new int[n];
-    for (int i=0;i<n;i++)
-    {
-        DivisionFinal[i] = 0;
-        for(int j=0;j<nInicial;j++)
-        {
-            if(Exponente[j]==i)
-            {
-                DivisionFinal[i]+=DivisionInicial[j];
-            }
-        }
-    }
     cout<<endl;
-    ImprimirArreglo(DivisionFinal,n);
+    ImprimirArregloD(DivisionInicial,nInicial);
 
-    delete[] DivisionFinal;
     delete[] DivisionInicial;
-    delete[] Exponente;
+
 }
 
 void DerivarPolinomio(Polinomio* &Arreglo, int n)
