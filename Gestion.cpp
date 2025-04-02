@@ -64,20 +64,22 @@ void ControlOpciones(int opcion)
             }
         case 4:
             {
-                cout<<"El exponente del segundo polinomio debe ser mayor o igual que el primero"<<endl;
+                cout<<"El exponente del primer polinomio debe ser mayor o segundo que el primero"<<endl
+                <<"De lo contrario el Residuo ser\246 igual al dividendo"<<endl;
 
-                /*do{
-                    Polinomio* A = nullptr;
-                    int n1=CapturaArregloD(A);
-                    Polinomio* B = nullptr;
-                    int n2=CapturaArregloD(B);
-                }while(A[n1-1].exponente<B[n2-1].exponente);
+
+                Polinomio* A = nullptr;
+                int n1=CapturaArregloD(A);
+                Polinomio* B = nullptr;
+                int n2=CapturaArregloD(B);
+                DividirPolinomio(A,B,n1,n2);
+
 
 
 
 
                 delete[] A;
-                delete[] B;*/
+                delete[] B;
                 break;
             }
         case 5:
@@ -92,7 +94,7 @@ void ControlOpciones(int opcion)
         {
             float valor;
             Polinomio* A = nullptr;
-            int n=CapturaArreglo(A);
+            int n=CapturaArregloD(A);
             cout<<"Introduzca el valor de x:";
             cin>>valor;
             EvaluarPolinomio(A,n,valor);
@@ -114,12 +116,4 @@ void ImprimirOps ()
     <<"6) Para evaluar un polinomio"<<endl;
 }
 
-void Captura2()
-{
 
-}
-
-void Captura1()
-{
-
-}

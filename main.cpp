@@ -55,6 +55,13 @@ int main()
         {
             ControlOpciones(opcion);
         }
+        do {
+                cout <<endl<<endl;
+                cout <<"0) Para Salir"<< endl
+                     <<"1) Para realizar otra operaci\242n" << endl;
+
+                cin>> opcion;
+            } while (!CapturaSegura(opcion) || (opcion != 0 && opcion != 1));
     }while(opcion!=0);
 
 

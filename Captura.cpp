@@ -13,27 +13,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-int CapturaArreglo (int* &Arreglo)
-{
-    int n;
 
-    do{
-    cout<<"Introduzca el grado del polinomio ["<<MINIMO<<"-"<<MAXIMO<<"]: ";
-    cin>>n;
-    }while(!CapturaSegura(n)||n<MINIMO||n>MAXIMO);
-    n=n+1;//aqui se le suma 1 a n para que el tamaño del arreglo sea el correcto
-    delete [] Arreglo;
-
-    Arreglo= new int [n];
-    for (int i=0; i<n;i++)
-    {
-        cout<<"Introduzca x^"<<i<<": ";
-        cin>>Arreglo[i];
-    }
-    ImprimirArreglo(Arreglo,n);
-    cout<<endl;
-    return n;
-}
 int CapturaArregloD (Polinomio* &Arreglo)
 {
     int n;
@@ -51,10 +31,20 @@ int CapturaArregloD (Polinomio* &Arreglo)
 
     for (int i=0; i<n;i++)
     {
+        if(i!=n-1)
+        {
         cout<<"Introduzca x^"<<n-1-i<<": ";
         cin>>Arreglo[i].coeficiente;
         Arreglo[i].exponente=n-1-i;
+        }else
+        {
+            cout<<"Introduzca la constante: ";
+            cin>>Arreglo[i].coeficiente;
+            Arreglo[i].exponente=0;
+        }
+
     }
+
     ImprimirArregloD(Arreglo,n);
     cout<<endl;
     return n;
@@ -62,6 +52,11 @@ int CapturaArregloD (Polinomio* &Arreglo)
 
 void ImprimirArregloD (Polinomio* Arreglo, int n)
 {
+
+    if(n==1&&Arreglo[0].coeficiente==0)
+    {
+        cout<<0;
+    }else{
 
     for (int i=0; i<n;i++)
     {
@@ -71,48 +66,18 @@ void ImprimirArregloD (Polinomio* Arreglo, int n)
         {
             if(i==0)
             {
-                cout<<Arreglo[i].coeficiente<<"x^"<<Arreglo[i].exponente;
+                cout<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
+                (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
+
             }else
             {
-            cout<<(Arreglo[i].coeficiente>0? "+":"")<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
-            (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
+                cout<<(Arreglo[i].coeficiente>0? "+":"")<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
+                (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
             }
         }
 
     }
-
-}
-
-void ImprimirArreglo (int* Arreglo, int n)
-{
-    if(n==1)
-    {
-        cout<<Arreglo[0];
-    }else
-    {
-        if(n==2)
-        {
-        cout<<Arreglo[0]<<"x"<<(Arreglo[1]>0? "+":"")<<(Arreglo[1]>0? std::to_string(Arreglo[1]):"");
-        }else
-        {
-            for (int i=n-1; i>-1;i-- )
-            {
-
-
-                if(Arreglo[i]!=0)
-                {
-                    if(i==n-1)
-                    {
-                        cout<<Arreglo[i]<<"x^"<<i;
-                    }else
-                    {
-                    cout<<(Arreglo[i]>0? "+":"")<<Arreglo[i]<<(i>0?"x":"")<<(i>1 ? "^"+ std::to_string(i):"");
-                    }
-                }
-
-            }
-        }
     }
 
-        Sleep(3);
 }
+
