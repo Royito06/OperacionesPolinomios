@@ -9,31 +9,6 @@ using namespace std;
 
 int main()
 {
- /*
-    do{
-
-        do{
-            IMprimirOps();
-
-            cin>>opcion;
-        }while(!CapturaSegura(opcion)||opcion>6||opcion<0);
-
-        if(opcion!=0||Repetir!=0)
-        {
-
-            do{
-                ControlOpciones(opcion);
-                if(opcion==0)
-                {
-                    do{
-                        cout<<"\250Desea realizar otra operaci\242n?"<<endl<<"0)Para No"<<endl<<"1) Para Si"<<endl;
-                        cin>>Repetir;
-                    }while(!CapturaSegura(Repetir)||Repetir>1||Repetir<0);
-                }
-            }while(Repetir!=0);
-
-        }
-    }while(opcion!=0||Repetir!=0);*/
 
     int opcion;
     do{

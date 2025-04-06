@@ -29,20 +29,24 @@ int CapturaArregloD (Polinomio* &Arreglo)
 
     Arreglo= new Polinomio [n];
 
+    cout<<endl;
+    cout<<"ej. para x^7 escribir 4 si es 4x^7, igual para cualquier otro exponente";
+    cout<<endl<<endl;
+
     for (int i=0; i<n;i++)
     {
-        if(i!=n-1)
-        {
-        cout<<"Introduzca x^"<<n-1-i<<": ";
-        cin>>Arreglo[i].coeficiente;
-        Arreglo[i].exponente=n-1-i;
-        }else
-        {
-            cout<<"Introduzca la constante: ";
+        do{
+            if(i!=n-1)
+            {
+            cout<<"Introduzca x^"<<n-1-i<<": ";
             cin>>Arreglo[i].coeficiente;
-            Arreglo[i].exponente=0;
-        }
-
+            }else
+            {
+                cout<<"Introduzca la constante: ";
+                cin>>Arreglo[i].coeficiente;
+            }
+        }while(!CapturaSegura(Arreglo[i].coeficiente));
+        Arreglo[i].exponente=n-1-i;
     }
 
     ImprimirArregloD(Arreglo,n);
@@ -53,31 +57,33 @@ int CapturaArregloD (Polinomio* &Arreglo)
 void ImprimirArregloD (Polinomio* Arreglo, int n)
 {
 
+
     if(n==1&&Arreglo[0].coeficiente==0)
     {
         cout<<0;
     }else{
 
-    for (int i=0; i<n;i++)
-    {
-
-
-        if(Arreglo[i].coeficiente!=0)
+        for (int i=0; i<n;i++)
         {
-            if(i==0)
-            {
-                cout<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
-                (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
 
-            }else
+
+            if(Arreglo[i].coeficiente!=0)
             {
-                cout<<(Arreglo[i].coeficiente>0? "+":"")<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
-                (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
+                if(i==0)
+                {
+                    cout<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
+                    (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
+
+                }else
+                {
+                    cout<<(Arreglo[i].coeficiente>0? "+":"")<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
+                    (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
+                }
             }
-        }
 
+        }
     }
-    }
+
 
 }
 

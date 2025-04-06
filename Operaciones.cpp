@@ -140,12 +140,12 @@ void MultiplicacionPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB)
     delete[] MultiplicacionInicial;
 
 }
-//Este quedará pendiente
+
 void DividirPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB)
 {
 
 
-    Polinomio* Cociente= new Polinomio [nA-nB+1];
+    Polinomio* Cociente= new Polinomio [nA];
     Polinomio* Residuo = new Polinomio[nA];
 
     if(nA>nB)
@@ -157,14 +157,7 @@ void DividirPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB)
             Cociente[i].exponente=A[i].exponente;
         }
 
-        for (int i = 0; i <= nA - nB; i++) {
-            Cociente[i].coeficiente = Residuo[i].coeficiente / B[0].coeficiente;
-            Cociente[i].exponente = Residuo[i].exponente - B[0].exponente;
 
-            for (int j = 0; j < nB; j++) {
-                Residuo[i + j].coeficiente -= Cociente[i].coeficiente * B[j].coeficiente;
-            }
-        }
     }else
     {
         for(int i=0; i<nA; i++)
@@ -178,7 +171,7 @@ void DividirPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB)
 
     cout<<endl;
     cout<<"El resultado es: ";
-    ImprimirArregloD(Cociente,nA-nB-1);
+    ImprimirArregloD(Cociente,nA);
     cout<<endl;
     cout<<"El residuo es: ";
     ImprimirArregloD(Residuo,nA);
