@@ -30,7 +30,7 @@
 1743385745 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\operaciones.h
 	<iostream>
 
-1744089245 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.cpp
+1744089368 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.cpp
 	<iostream>
 	<cstdlib>
 	<string>
@@ -57,7 +57,7 @@
 	"CapturaSegura.tpp"
 	"Gestion.h"
 
-1744086139 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.cpp
+1744122364 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.cpp
 	<iostream>
 	<cmath>
 	"Captura.h"

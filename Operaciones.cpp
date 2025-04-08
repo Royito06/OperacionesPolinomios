@@ -166,57 +166,106 @@ void MultiplicacionPolinomio(Polinomio* &A,Polinomio* &B, int nA,int nB)
 void DividirPolinomio(Polinomio* P, int nP, Polinomio* Q, int nQ)
 {
     // Verificar si el divisor es cero
-    if (Q[0].coeficiente == 0) throw "División por 0";
-
-    // Crear un arreglo auxiliar para trabajar con el dividendo (P)
-    double* D = new double[nP + 1];
-    for (int i = 0; i < nP; i++) {
-        D[i] = P[i].coeficiente;
+    if (Q[0].coeficiente == 0) {
+        cout << "Error: Division por cero" << endl;
+        return;
     }
 
-    // Inicializar el cociente (C) y el residuo (R)
-    Polinomio* cociente = new Polinomio[nP]; // Puede tener hasta nP términos
-    int exponenteMaxCociente = 0;
+    // Si el grado del divisor es mayor que el dividendo, el cociente es 0 y el residuo es P
+    if (nQ > nP) {
+        cout << "Cociente: 0" << endl;
+        cout << "Residuo: ";
+        ImprimirArregloD(P, nP);
+        return;
+    }
 
+    // Crear arreglos temporales para el cociente y residuo
+    int maxGradoCociente = nP - nQ;
+    Polinomio* cociente = new Polinomio[maxGradoCociente + 1];
     Polinomio* residuo = new Polinomio[nP];
-    int exponenteMaxResiduo = nP;
 
-    // Realizar la división (de la forma más parecida a una división larga)
-    while (nP >= nQ) {
-        // Obtener el coeficiente del cociente
-        double coef = D[0] / Q[0].coeficiente;
-        int exponente = nP - nQ;
+    // Inicializar cociente y residuo
+    for (int i = 0; i <= maxGradoCociente; i++) {
+        cociente[i].coeficiente = 0;
+        cociente[i].exponente = maxGradoCociente - i;
+    }
 
-        // Guardar el término en el cociente
-        cociente[exponenteMaxCociente].coeficiente = coef;
-        cociente[exponenteMaxCociente].exponente = exponente;
-        exponenteMaxCociente++;
+    // Copiar P a residuo
+    for (int i = 0; i < nP; i++) {
+        residuo[i].coeficiente = P[i].coeficiente;
+        residuo[i].exponente = P[i].exponente;
+    }
 
-        // Restar el múltiplo del divisor al dividendo (D)
-        for (int i = 0; i < nQ; i++) {
-            D[i] -= coef * Q[i].coeficiente;
+    // Algoritmo de división de polinomios
+    for (int i = 0; i <= maxGradoCociente; i++) {
+        // Calcular el término actual del cociente
+        double coef = residuo[i].coeficiente / Q[0].coeficiente;
+        int exp = residuo[i].exponente - Q[0].exponente;
+
+        cociente[i].coeficiente = coef;
+        cociente[i].exponente = exp;
+
+        // Restar el término multiplicado por el divisor
+        for (int j = 0; j < nQ; j++) {
+            int pos = i + j;
+            if (pos < nP) {
+                residuo[pos].coeficiente -= coef * Q[j].coeficiente;
+            }
+        }
+    }
+
+    // Determinar el grado real del residuo
+    int gradoResiduo = 0;
+    for (int i = 0; i < nP; i++) {
+        if (residuo[i].coeficiente != 0) {
+            gradoResiduo = residuo[i].exponente;
+            break;
+        }
+    }
+
+    // Imprimir resultados
+    cout << "Division de polinomios:" << endl;
+    cout << "Dividendo: ";
+    ImprimirArregloD(P, nP);
+    cout << endl << "Divisor: ";
+    ImprimirArregloD(Q, nQ);
+    cout << endl << "Cociente: ";
+    ImprimirArregloD(cociente, maxGradoCociente + 1);
+    cout << endl << "Residuo: ";
+
+    // Solo imprimir términos no nulos del residuo
+    bool todosCeros = true;
+    for (int i = 0; i < nP; i++) {
+        if (residuo[i].coeficiente != 0) {
+            todosCeros = false;
+            break;
+        }
+    }
+
+    if (todosCeros) {
+        cout << "0";
+    } else {
+        // Crear un arreglo solo con los términos no nulos
+        int count = 0;
+        for (int i = 0; i < nP; i++) {
+            if (residuo[i].coeficiente != 0) count++;
         }
 
-        // Reducir el tamaño del dividendo
-        nP--;
+        Polinomio* residuoFinal = new Polinomio[count];
+        int index = 0;
+        for (int i = 0; i < nP; i++) {
+            if (residuo[i].coeficiente != 0) {
+                residuoFinal[index] = residuo[i];
+                index++;
+            }
+        }
+
+        ImprimirArregloD(residuoFinal, count);
+        delete[] residuoFinal;
     }
+    cout << endl;
 
-    // El residuo será el contenido restante de D
-    for (int i = 0; i < nP; i++) {
-        residuo[i].coeficiente = D[i];
-        residuo[i].exponente = i;
-    }
-
-
-
-    // Imprimir el cociente y el residuo
-    cout << "Cociente: ";
-    ImprimirArregloD(cociente, exponenteMaxCociente);
-    cout << "\nResiduo: ";
-    ImprimirArregloD(residuo, exponenteMaxResiduo);
-
-    // Liberar la memoria
-    delete[] D;
+    // Liberar memoria
     delete[] cociente;
     delete[] residuo;
 }

@@ -29,10 +29,10 @@ int CapturaArregloD(Polinomio* &Arreglo)
     delete [] Arreglo;
     Arreglo= new Polinomio [n];
 
+
     cout<<endl;
-    cout<<"ej. para x^7 escribir 4 si es 4x^7, igual para cualquier otro exponente";
-    cout<<endl<<endl;
     cout<<"CADA x QUE INTRODUZCA DEBE SER DISTINTA DE 0";
+    cout<<endl;
     for (int i=0; i<n;i++)
     {
         do{
@@ -45,7 +45,7 @@ int CapturaArregloD(Polinomio* &Arreglo)
                 cout<<"Introduzca la constante: ";
                 cin>>Arreglo[i].coeficiente;
             }
-        }while(!CapturaSegura(Arreglo[i].coeficiente)&&Arreglo[i].coeficiente==0);
+        }while(!CapturaSegura(Arreglo[i].coeficiente)||Arreglo[i].coeficiente==0);
         Arreglo[i].exponente=n-1-i;
     }
 
