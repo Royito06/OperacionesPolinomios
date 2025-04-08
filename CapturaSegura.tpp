@@ -7,7 +7,7 @@ using namespace std;
 template <typename Tipo>
 bool CapturaSegura(Tipo &n)
 {
-    if (cin.fail()||n<0)
+    if (cin.fail())
     {
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

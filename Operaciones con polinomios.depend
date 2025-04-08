@@ -30,7 +30,7 @@
 1743385745 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\elordendelcaos\operaciones con polinomios\operaciones.h
 	<iostream>
 
-1743917108 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.cpp
+1744089245 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.cpp
 	<iostream>
 	<cstdlib>
 	<string>
@@ -39,13 +39,13 @@
 	"CapturaSegura.tpp"
 	"Operaciones.h"
 
-1743377173 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.h
+1744038566 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\captura.h
 	"Operaciones.h"
 
-1743559954 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.h
+1744087248 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.h
 	<iostream>
 
-1743912797 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\capturasegura.tpp
+1744088500 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\capturasegura.tpp
 	<iostream>
 	<limits>
 
@@ -57,18 +57,18 @@
 	"CapturaSegura.tpp"
 	"Gestion.h"
 
-1743911153 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.cpp
+1744086139 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\operaciones.cpp
 	<iostream>
 	<cmath>
 	"Captura.h"
 	"Operaciones.h"
 
-1743562567 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\gestion.cpp
+1744086793 source:c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\gestion.cpp
 	"Operaciones.h"
 	"Captura.h"
 	"CapturaSegura.tpp"
 	"Gestion.h"
 	<windows.h>
 
-1743518858 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\gestion.h
+1744038566 c:\datos\programación\c++\cursoprogramacion\tareassegundosemestre(notodas)\operaciones con polinomios\gestion.h
 

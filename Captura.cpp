@@ -14,7 +14,7 @@ using std::cin;
 using std::endl;
 
 
-int CapturaArregloD (Polinomio* &Arreglo)
+int CapturaArregloD(Polinomio* &Arreglo)
 {
     int n;
 
@@ -22,17 +22,17 @@ int CapturaArregloD (Polinomio* &Arreglo)
     cout<<"Introduzca el grado del polinomio ["<<MINIMO<<"-"<<MAXIMO<<"]: ";
     cin>>n;
     }while(!CapturaSegura(n)||n<MINIMO||n>MAXIMO);
+
     n=n+1;//aqui se le suma 1 a n para que el tamaño del arreglo sea el correcto
 
     //Por si acaso
     delete [] Arreglo;
-
     Arreglo= new Polinomio [n];
 
     cout<<endl;
     cout<<"ej. para x^7 escribir 4 si es 4x^7, igual para cualquier otro exponente";
     cout<<endl<<endl;
-
+    cout<<"CADA x QUE INTRODUZCA DEBE SER DISTINTA DE 0";
     for (int i=0; i<n;i++)
     {
         do{
@@ -45,7 +45,7 @@ int CapturaArregloD (Polinomio* &Arreglo)
                 cout<<"Introduzca la constante: ";
                 cin>>Arreglo[i].coeficiente;
             }
-        }while(!CapturaSegura(Arreglo[i].coeficiente));
+        }while(!CapturaSegura(Arreglo[i].coeficiente)&&Arreglo[i].coeficiente==0);
         Arreglo[i].exponente=n-1-i;
     }
 
@@ -57,32 +57,46 @@ int CapturaArregloD (Polinomio* &Arreglo)
 void ImprimirArregloD (Polinomio* Arreglo, int n)
 {
 
-
-    if(n==1&&Arreglo[0].coeficiente==0)
+ if(n==1&&Arreglo[0].coeficiente==0)
     {
         cout<<0;
     }else{
 
-        for (int i=0; i<n;i++)
+        if(Arreglo[0].coeficiente==1)
+        {
+            cout<<(Arreglo[0].coeficiente!=0?"x":"")<<
+            (Arreglo[0].exponente>1 ? "^"+ to_string(Arreglo[0].exponente):"");
+        }else
+        {
+            cout<<Arreglo[0].coeficiente<<(Arreglo[0].coeficiente!=0?"x":"")<<
+            (Arreglo[0].exponente>1 ? "^"+ to_string(Arreglo[0].exponente):"");
+        }
+
+        for (int i=1; i<n-1;i++)
         {
 
-
-            if(Arreglo[i].coeficiente!=0)
+            if(Arreglo[i].coeficiente!=1)
             {
-                if(i==0)
-                {
-                    cout<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
-                    (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
 
-                }else
-                {
-                    cout<<(Arreglo[i].coeficiente>0? "+":"")<<Arreglo[i].coeficiente<<(Arreglo[i].exponente>0?"x":"")<<
-                    (Arreglo[i].exponente>1 ? "^"+ std::to_string(Arreglo[i].exponente):"");
-                }
+                cout<<(Arreglo[i].coeficiente>0? "+":"")<<Arreglo[i].coeficiente
+                <<(Arreglo[i].exponente>0?"x":"")<<(Arreglo[i].exponente>1 ? "^"+ to_string(Arreglo[i].exponente):"");
+
+            }else
+            {
+                cout<<(Arreglo[i].coeficiente>0? "+":"")
+                <<(Arreglo[i].exponente>0?"x":"")<<(Arreglo[i].exponente>1 ? "^"+ to_string(Arreglo[i].exponente):"");
             }
 
         }
+
+        if(Arreglo[n-1].coeficiente!=0)
+        {
+            cout<<(Arreglo[n-1].coeficiente>0? "+":"")<<Arreglo[n-1].coeficiente;
+        }
+
+
     }
+
 
 
 }

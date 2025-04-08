@@ -64,15 +64,15 @@ void ControlOpciones(int opcion)
             }
         case 4:
             {
-                cout<<"El exponente del primer polinomio debe ser mayor o segundo que el primero"<<endl
-                <<"De lo contrario el Residuo ser\246 igual al dividendo"<<endl;
+                cout<<"El exponente del segundo polinomio debe ser mayor o igual que el primero"<<endl
+                <<"De lo contrario el Residuo ser\244 igual al dividendo"<<endl;
 
 
                 Polinomio* A = nullptr;
                 int n1=CapturaArregloD(A);
                 Polinomio* B = nullptr;
                 int n2=CapturaArregloD(B);
-                DividirPolinomio(A,B,n1,n2);
+                DividirPolinomio(A,n1,B,n2);
 
 
 
